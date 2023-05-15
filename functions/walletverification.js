@@ -1,8 +1,9 @@
 const Web3 = require("web3");
+const { Handler, HandlerEvent, HandlerContext } = require("@netlify/functions");
 
 const web3 = new Web3(); // No need to connect to a provider here.
 
-exports.handler = async function (event, context) {
+const handler = async function (event, context) {
   try {
     const { signature, message, account } = JSON.parse(event.body);
 
@@ -32,3 +33,5 @@ exports.handler = async function (event, context) {
     };
   }
 };
+
+module.exports = { handler };

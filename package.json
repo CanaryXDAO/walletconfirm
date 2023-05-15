@@ -1,0 +1,7 @@
+{
+    "name": "wallet-confirm",
+    "version": "1.0.0",
+    "dependencies": {
+      "web3": "^1.6.1"
+    }
+  }

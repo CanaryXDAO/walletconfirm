@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log(`Message "${message}" signed by ${account}: ${signature}`);
 
-      const response = await fetch("https://heartfelt-frangollo-1fb42f.netlify.app/.netlify/functions/walletVerification", {
+      const response = await fetch("/.netlify/functions/walletVerification", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,9 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
           account: account,
         }),
       });
-
+    
       if (!response.ok) {
-        throw new Error("Failed to send signature to the server.");
+        const errorText = await response.text();
+        throw new Error(`Failed to send signature to the server. Status: ${response.status}, Message: ${errorText}`);
       }
 
     } catch (error) {

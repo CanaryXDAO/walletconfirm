@@ -1,8 +1,9 @@
 const Web3 = require("web3");
+const { handler: middleware } = require("./middleware");
 
 const web3 = new Web3();
 
-exports.handler = async function (event, context) {
+const handler = async function (event, context) {
   try {
     const { signature, message, account } = JSON.parse(event.body);
 
@@ -12,19 +13,11 @@ exports.handler = async function (event, context) {
     if (recoveredAccount.toLowerCase() === account.toLowerCase()) {
       return {
         statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({ success: true }),
       };
     } else {
       return {
         statusCode: 401,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({ success: false, error: "Invalid signature" }),
       };
     }
@@ -32,10 +25,6 @@ exports.handler = async function (event, context) {
     console.error(error);
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({ success: false, error: "Internal server error" }),
     };
   }

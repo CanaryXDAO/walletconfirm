@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log(`Message "${message}" signed by ${account}: ${signature}`);
 
-      const response = await fetch("https://canaryxswap.finance/.netlify/functions/walletVerificationProxy", {
+      const response = await fetch("https://canaryxswap.finance/.netlify/functions/walletVerificationproxy", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

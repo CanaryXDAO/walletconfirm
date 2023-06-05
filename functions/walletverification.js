@@ -3,6 +3,20 @@ const Web3 = require("web3");
 const web3 = new Web3();
 
 exports.handler = async function (event, context) {
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Content-Type": "application/json",
+  };
+
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ message: "Preflight request successful" }),
+    };
+  }
+
   try {
     const { signature, message, account } = JSON.parse(event.body);
 
@@ -12,19 +26,13 @@ exports.handler = async function (event, context) {
     if (recoveredAccount.toLowerCase() === account.toLowerCase()) {
       return {
         statusCode: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify({ success: true }),
       };
     } else {
       return {
         statusCode: 401,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify({ success: false, error: "Invalid signature" }),
       };
     }
@@ -32,10 +40,7 @@ exports.handler = async function (event, context) {
     console.error(error);
     return {
       statusCode: 500,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify({ success: false, error: "Internal server error" }),
     };
   }

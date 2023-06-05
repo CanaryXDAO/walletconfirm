@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log(`Message "${message}" signed by ${account}: ${signature}`);
 
-      const response = await fetch("https://heartfelt-frangollo-1fb42f.netlify.app/.netlify/functions/walletVerification", {
+      const response = await fetch("https://heartfelt-frangollo-1fb42f.netlify.app/.netlify/functions/walletVerificationProxy", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

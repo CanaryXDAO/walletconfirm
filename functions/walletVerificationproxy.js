@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
 exports.handler = async function (event, context) {
-  const walletVerificationUrl = "https://heartfelt-frangollo-1fb42f.netlify.app/.netlify/functions/walletVerification";
+    const walletVerificationUrl = "https://canaryxswap.finance/.netlify/functions/walletVerification";
   const requestOptions = {
     method: event.httpMethod,
     headers: {

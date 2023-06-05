@@ -10,6 +10,7 @@
 
 [functions]
   directory = "functions"
-  [[functions.headers]]
-    header = "Access-Control-Allow-Origin = *"
-    header = "Access-Control-Allow-Headers = Content-Type"
+
+[functions.http_headers]
+  Access-Control-Allow-Origin = "*"
+  Access-Control-Allow-Headers = "Content-Type"

@@ -1,14 +1,11 @@
 {
     "name": "wallet-confirm",
     "version": "1.0.0",
-    "scripts": {
-        "build:functions": "webpack --config webpack.functions.js"
-    },
     "dependencies": {
-        "web3": "^1.6.1"
+      "web3": "^1.6.1"
     },
     "devDependencies": {
-        "webpack": "^5.82.1",
-        "webpack-cli": "^5.1.1"
+      "webpack": "^5.82.1",
+      "webpack-cli": "^5.1.1"
     }
-}
+  }

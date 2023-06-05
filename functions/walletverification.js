@@ -1,5 +1,6 @@
 const Web3 = require("web3");
 
+
 const web3 = new Web3(); // No need to connect to a provider here.
 
 exports.handler = async function (event, context) {

@@ -1,0 +1,10 @@
+[build]
+  publish = "frontend/"
+  functions = "functions"
+  command = "npm run build:functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false

@@ -7,3 +7,9 @@
   to = "/index.html"
   status = 200
   force = false
+
+[functions]
+  directory = "functions"
+  [[functions.headers]]
+    header = "Access-Control-Allow-Origin = *"
+    header = "Access-Control-Allow-Headers = Content-Type"

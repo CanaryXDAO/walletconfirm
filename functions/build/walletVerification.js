@@ -1,1 +1,0 @@
-(()=>{"use strict";var r={336:r=>{r.exports=require("D:\\@canaryx\\@CanarySwap-Everything\\@walletconfirm\\functions\\walletVerification.js")}},e={},t=function t(o){var a=e[o];if(void 0!==a)return a.exports;var i=e[o]={exports:{}};return r[o](i,i.exports,t),i.exports}(336),o=exports;for(var a in t)o[a]=t[a];t.__esModule&&Object.defineProperty(o,"__esModule",{value:!0})})();
